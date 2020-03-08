@@ -29,3 +29,6 @@ hosts_network_interface: "{{ ansible_default_ipv4.interface }}"
 
 # Backup of previous host
 host_file_backup: no
+
+# Ansible Facts to use
+hosts_use_inventory_facts: false

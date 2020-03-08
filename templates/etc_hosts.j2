@@ -4,7 +4,11 @@
 
 127.0.0.1  localhost.localdomain  localhost
 {% if hosts_add_default_ipv4 %}
+{%- if hosts_use_inventory_facts %}
+{{ ansible_default_ipv4.address }}  {{ inventory_hostname }} {{ inventory_hostname_short }}
+{% else %}
 {{ ansible_default_ipv4.address }}  {{ ansible_fqdn }} {{ ansible_hostname }}
+{% endif %}
 {% endif %}
 {% if hosts_add_basic_ipv6 %}
 
